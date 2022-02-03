@@ -1,0 +1,3 @@
+class HockeyBag < ApplicationRecord
+  
+end

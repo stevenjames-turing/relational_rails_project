@@ -2,7 +2,7 @@ class CreateGolfCourse < ActiveRecord::Migration[5.2]
   def change
     create_table :golf_courses do |t|
       t.string :name
-      t.integer :hole_count
+      t.integer :holes
       t.boolean :public
       
       t.timestamps

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/holes/:id', to: 'holes#show'
   get 'hockey_bags', to: 'hockey_bags#index'
   get 'hockey_bags/:id', to: 'hockey_bags#show'
+  get 'teams', to: 'teams#index'
+  get 'teams/:id', to: 'teams#show'
 end

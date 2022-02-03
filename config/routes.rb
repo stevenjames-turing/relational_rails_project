@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   get '/golf_courses/:id', to: 'golf_courses#show'
   get '/holes', to: 'holes#index'
   get '/holes/:id', to: 'holes#show'
+  get 'hockey_bags', to: 'hockey_bags#index'
+  get 'hockey_bags/:id', to: 'hockey_bags#show'
+  get 'teams', to: 'teams#index'
+  get 'teams/:id', to: 'teams#show'
+  get 'players', to: 'players#index'
+  get 'players/:id', to: 'players#show'
 end

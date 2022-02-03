@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'hockey_bags/:id', to: 'hockey_bags#show'
   get 'teams', to: 'teams#index'
   get 'teams/:id', to: 'teams#show'
+  get 'players', to: 'players#index'
 end

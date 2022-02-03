@@ -17,5 +17,9 @@ RSpec.describe 'hole index page' do
         expect(page).to_not have_content(course_1.name)
     end
 
-
+    it '' do 
+        # As a visitor
+        # When I visit '/child_table_name/:id'
+        # Then I see the child with that id including the child's attributes:
+    end
 end

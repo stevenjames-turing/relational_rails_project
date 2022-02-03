@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/golf_courses', to: 'golf_courses#index'
   get '/golf_courses/:id', to: 'golf_courses#show'
   get '/holes', to: 'holes#index'
+  get '/holes/:id', to: 'holes#show'
 end

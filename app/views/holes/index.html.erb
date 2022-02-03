@@ -1,8 +1,7 @@
 <h1>Holes</h1>
 <% @holes.each do |hole| %>
-<h3>Hole Number: <%= hole.id %></h3>
+<h3><%= hole.name %></h3>
 <p>Par: <%= hole.par %></p>
-<p>Pin Location: <%= hole.pin_location %></p>
 <p>Hazards? <%= hole.hazard %></p>
 <% end %>
 

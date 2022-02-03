@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_224537) do
+ActiveRecord::Schema.define(version: 2022_02_03_211545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,25 @@ ActiveRecord::Schema.define(version: 2022_02_02_224537) do
     t.index ["golf_course_id"], name: "index_holes_on_golf_course_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.integer "number"
+    t.boolean "injured"
+    t.string "name"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "roster"
+    t.boolean "coach"
+    t.string "league"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "equipment", "hockey_bags"
   add_foreign_key "holes", "golf_courses"
+  add_foreign_key "players", "teams"
 end

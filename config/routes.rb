@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'teams/:id', to: 'teams#show'
   get 'players', to: 'players#index'
   get 'players/:id', to: 'players#show'
+  get 'golf_courses/:id/holes', to: 'golf_course_holes#index'
   get 'teams/:id/players', to: 'team_players#index'
 end

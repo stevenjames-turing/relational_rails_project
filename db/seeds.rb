@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 GolfCourse.destroy_all
 Hole.destroy_all
+Team.destroy_all
+Player.destroy_all
 
 augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
 tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
@@ -29,3 +31,26 @@ hole_6 = pinehurst.holes.create!(hazard: true, name: "The 6th Hole", par: 3)
 hole_7 = pinehurst.holes.create!(hazard: true, name: "The 7th Hole", par: 4)
 hole_8 = pinehurst.holes.create!(hazard: false, name: "The 8th Hole", par: 5)
 hole_9 = pinehurst.holes.create!(hazard: true, name: "The 9th Hole", par: 3)
+
+team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
+p5 = team_1.players.create(name: "Landeskog", number: 92, injured: false) 
+p6 = team_1.players.create(name: "Johnson", number: 6, injured: true) 
+
+team_2 = Team.create(roster: 23, coach: false, league: "Blues")
+p3 = team_2.players.create(name: "Perron", number: 57, injured: false)
+p7 = team_2.players.create(name: "O'Reilly", number: 90, injured: false)
+p8 = team_2.players.create(name: "Saad", number: 20, injured: true)
+p9 = team_2.players.create(name: "Bortuzzo", number: 41, injured: true)
+p10 = team_2.players.create(name: "Binnington", number: 50, injured: false)
+
+team_3 = Team.create(roster: 36, coach: true, league: "Reds")
+p11 = team_3.players.create(name: "Votto", number: 19, injured: false)
+p12 = team_3.players.create(name: "Moustakas", number: 9, injured: true)
+p13 = team_3.players.create(name: "Farmer", number: 17, injured: false)
+p14 = team_3.players.create(name: "Winker", number: 33, injured: false)
+p15 = team_3.players.create(name: "Bailey", number: 80, injured: false)
+
+

@@ -18,6 +18,5 @@ RSpec.describe 'golf course holes index page' do
         expect(page).to have_content(pink_dogwood.name)
         expect(page).to have_content(pink_dogwood.par)
         expect(page).to_not have_content(hole_1.name)
-        expect(page).to_not have_content(hole_1.par)
     end
 end

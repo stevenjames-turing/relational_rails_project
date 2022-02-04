@@ -1,5 +1,4 @@
 class Team < ApplicationRecord
   has_many :players
-  # validates_inclusion_of :coach, 
-  # in: ['true', 'false']
+  validates :roster, :coach, :league, presence: true 
 end

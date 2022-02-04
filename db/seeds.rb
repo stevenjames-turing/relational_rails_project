@@ -47,6 +47,10 @@ p9 = team_2.players.create(name: "Bortuzzo", number: 41, injured: true)
 p10 = team_2.players.create(name: "Binnington", number: 50, injured: false)
 
 team_3 = Team.create(roster: 36, coach: true, league: "Reds")
-p11 = team_2.players.create(name: "Votto", number: 19, injured: false)
+p11 = team_3.players.create(name: "Votto", number: 19, injured: false)
+p12 = team_3.players.create(name: "Moustakas", number: 9, injured: true)
+p13 = team_3.players.create(name: "Farmer", number: 17, injured: false)
+p14 = team_3.players.create(name: "Winker", number: 33, injured: false)
+p15 = team_3.players.create(name: "Bailey", number: 80, injured: false)
 
 

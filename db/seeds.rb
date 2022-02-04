@@ -31,6 +31,7 @@ hole_6 = pinehurst.holes.create!(hazard: true, name: "The 6th Hole", par: 3)
 hole_7 = pinehurst.holes.create!(hazard: true, name: "The 7th Hole", par: 4)
 hole_8 = pinehurst.holes.create!(hazard: false, name: "The 8th Hole", par: 5)
 hole_9 = pinehurst.holes.create!(hazard: true, name: "The 9th Hole", par: 3)
+hole_10 = pinehurst.holes.create!(hazard: true, name: "The 10th Hole", par: 5)
 
 team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
 p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)

@@ -1,4 +1,5 @@
 <h1><%= @course.name %></h1>
+<a href="/golf_courses/<%= @course.id %>/holes/new">Create New Hole</a>
 <% @golf_course_holes.each do |hole| %>
     <h4>Hole Name: <%= hole.name %></h4>
     <p>Par: <%= hole.par %></p>

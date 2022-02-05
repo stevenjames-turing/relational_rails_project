@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'golf_courses/:id', to: 'golf_courses#show'
   get 'holes', to: 'holes#index'
   get 'holes/:id', to: 'holes#show'
+  get 'holes/:id/edit', to: 'holes#edit'
   get 'golf_courses/:id/holes', to: 'golf_course_holes#index'
+  get 'golf_courses/:id/holes/new', to: 'golf_course_holes#new'
 
   get 'teams/new', to: 'teams#new'
   get 'teams/:id/edit', to: 'teams#edit'
@@ -18,8 +20,10 @@ Rails.application.routes.draw do
 
   post 'golf_courses', to: 'golf_courses#create'
   post 'teams', to: 'teams#create'
+  post 'golf_courses/:id/holes', to: 'golf_course_holes#create'
 
   patch 'golf_courses/:id', to: 'golf_courses#update'
   patch 'teams/:id', to: 'teams#update'
+  patch 'holes/:id', to: 'holes#update'
 
 end

@@ -1,4 +1,5 @@
 <h1><%= @team.league %></h1>
+<a href="/teams/<%= "#{@team.id}" %>/players/new">New Player</a>
 <% @team_players.each do |player| %>
   <h4>Player: <%= player.name %></h4>
   <p>Number: <%= player.number %></p>

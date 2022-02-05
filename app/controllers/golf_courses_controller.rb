@@ -17,19 +17,19 @@ class GolfCoursesController < ApplicationController
             public: params[:public],
             hole_count: params[:hole_count]})
             redirect_to "/golf_courses"
-        end
+    end
         
-        def edit
-            @golf_course = GolfCourse.find(params[:id])
-        end
-        
-        def update
-            golf_course = GolfCourse.find(params[:id])
-            golf_course.update({
-                name: params[:name],
-                public: params[:public],
-                hole_count: params[:hole_count]})
-            redirect_to "/golf_courses/#{golf_course.id}"
+    def edit
+        @golf_course = GolfCourse.find(params[:id])
+    end
+    
+    def update
+        golf_course = GolfCourse.find(params[:id])
+        golf_course.update({
+            name: params[:name],
+            public: params[:public],
+            hole_count: params[:hole_count]})
+        redirect_to "/golf_courses/#{golf_course.id}"
     end
 
 end

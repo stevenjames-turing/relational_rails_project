@@ -33,8 +33,10 @@ RSpec.describe 'golf course index page' do
         hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
         hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
         
-        visit "/golf_courses"
+        visit "/golf_courses/#{augusta.id}"
 
         expect(page).to have_link("Golf Course Index")
+        click_link("Golf Course Index")
+        expect(current_path).to eq("/golf_courses")
     end
 end

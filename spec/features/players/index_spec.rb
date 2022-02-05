@@ -29,8 +29,10 @@ RSpec.describe 'players index page' do
     p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
     p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
 
-    visit "/players"
+    visit "/teams"
 
     expect(page).to have_link("Player Index")
+    click_link("Player Index")
+    expect(current_path).to eq("/players")
   end
 end

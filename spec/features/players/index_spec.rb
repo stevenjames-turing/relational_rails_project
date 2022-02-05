@@ -20,5 +20,17 @@ RSpec.describe 'players index page' do
     expect(page).to have_content(p3.name)
     expect(page).to have_content(p3.number)
     expect(page).to have_content(p3.injured)
+    expect(page).to_not have_content(team_1.league)
+  end
+
+  it 'has a link to every page' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+    p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
+
+    visit "/players"
+
+    expect(page).to have_link("Player Index")
   end
 end

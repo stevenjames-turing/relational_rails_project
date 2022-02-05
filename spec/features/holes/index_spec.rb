@@ -17,9 +17,14 @@ RSpec.describe 'hole index page' do
         expect(page).to_not have_content(course_1.name)
     end
 
-    it '' do 
-        # As a visitor
-        # When I visit '/child_table_name/:id'
-        # Then I see the child with that id including the child's attributes:
+    it 'has a link of every page' do 
+        pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
+        hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
+        hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
+        hole_3 = pinehurst.holes.create!(hazard: false, name: "The 3rd Hole", par: 4)
+
+        visit "/holes"
+        
+        expect(page).to have_link("Hole Index")
     end
 end

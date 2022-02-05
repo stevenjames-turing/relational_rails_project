@@ -17,7 +17,7 @@ RSpec.describe 'hole index page' do
         expect(page).to_not have_content(course_1.name)
     end
 
-    it 'has a link of every page' do 
+    it 'has a link on every page' do 
         pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
         hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
         hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)

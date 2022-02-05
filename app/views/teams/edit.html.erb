@@ -1,0 +1,9 @@
+<%= form_with url: "/teams/#{@team.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :league %>
+  <%= form.text_field :league %></p>
+  <p><%= form.label :coach? %>
+  <%= form.select :coach, ['pick one below', 'true', 'false'] %></p>
+  <p><%= form.label :roster%>
+  <%= form.number_field :roster %></p>
+  <%= form.submit "Submit"%>
+<% end %>

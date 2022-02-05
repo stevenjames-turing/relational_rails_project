@@ -1,0 +1,9 @@
+<%= form_with url: "/golf_courses/#{@golf_course.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :public? %>
+  <%= form.select :public, ['pick one below', 'true', 'false'] %></p>
+  <p><%= form.label :hole_count%>
+  <%= form.number_field :hole_count %></p>
+  <%= form.submit "Submit"%>
+<% end %>

@@ -1,4 +1,5 @@
 <h1>Teams</h1>
 <% @teams.each do |team| %>
-  <h3><%= team.league %></h3>
+  <h3><%= team.league %> (<%= team.created_at %>)</h3>
 <% end %>
+<a href="/teams/new">New Team</a>

@@ -1,4 +1,6 @@
 <h1>Team: <%= @team.league %></h1>
+<a href="/teams/<%= @team.id %>/players">Players</a>
 <h3>Roster: <%= @team.roster %></h3>
 <h3>Coach?: <%= @team.coach %></h3>
 <h3>Players: <%= Player.where(team_id: @team.id).count %></h3>
+<a href="/teams/<%= @team.id %>/edit">Update Team</a>

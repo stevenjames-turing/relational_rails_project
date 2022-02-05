@@ -1,0 +1,21 @@
+<form action="/teams" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter your new team:
+  <p>Team Name:
+  <input type='text'name='league'/><br/>
+  </p>
+
+  <p>The team has an active coach?
+  <select id="coach" name="coach">
+    <option value="pick one">pick one below</option>
+    <option value=true>true</option>
+    <option value=false>false</option>
+  </select>
+  </p>
+
+  <p>How many players are on the roster?
+  <input type="integer" name="roster">
+  </p>
+
+  <input type='submit' name="Submit"/>
+</form>

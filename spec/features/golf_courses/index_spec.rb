@@ -39,4 +39,24 @@ RSpec.describe 'golf course index page' do
         click_link("Golf Course Index")
         expect(current_path).to eq("/golf_courses")
     end
+
+    it 'can create a new Golf Course' do 
+        pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
+        hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
+        hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
+        hole_3 = pinehurst.holes.create!(hazard: false, name: "The 3rd Hole", par: 4)
+
+        visit "/golf_courses"
+
+        expect(page).to have_link("New Golf Course")
+        click_link("New Golf Course")
+        expect(current_path).to eq("/golf_courses/new")
+
+        fill_in :name, with: "Eagle Springs"
+        fill_in :hole_count, with: 9
+        select "true", :from => "public"
+
+        click_button("Submit")
+        expect(current_path).to eq("/golf_courses")
+    end
 end

@@ -32,6 +32,9 @@ RSpec.describe 'players show page' do
     click_link("Update Player")
     expect(current_path).to eq("/players/#{p1.id}/edit")
 
+    fill_in :name, with: "MacK"
+    fill_in :number, with: 22
+
     click_button("Submit")
     expect(current_path).to eq("/players/#{p1.id}")
   end

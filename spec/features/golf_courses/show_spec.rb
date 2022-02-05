@@ -25,4 +25,17 @@ RSpec.describe 'golf course show page' do
         expect(page).to have_content(3)
         expect(page).to_not have_content(4)
     end
+
+    it 'has a link to Golf_Course_Holes index page' do 
+        augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
+        tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
+        pink_dogwood = augusta.holes.create!(hazard: true, name: "Pink Dogwood", par: 5)
+        flowering_peach = augusta.holes.create!(hazard: false, name: "Flowering Peach", par: 4)
+
+        visit "/golf_courses/#{augusta.id}"
+
+        expect(page).to have_link("Holes")
+        click_link("Holes")
+        expect(current_path).to eq("/golf_courses/#{augusta.id}/holes")
+    end
 end

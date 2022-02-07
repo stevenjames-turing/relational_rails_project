@@ -2,9 +2,8 @@ class GolfCourseHolesController < ApplicationController
     def index
         @course = GolfCourse.find(params[:id])
         # @golf_course_holes = GolfCourse.find(params[:id]).holes
-        holes = GolfCourse.find(params[:id]).holes
-        @golf_course_holes = holes.order(params[:sort])
-        # require 'pry'; binding.pry
+        hole_records = GolfCourse.find(params[:id]).holes
+        @golf_course_holes = hole_records.order(params[:sort])
     end
     
     def new

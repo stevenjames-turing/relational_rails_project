@@ -9,4 +9,6 @@ class GolfCourse < ApplicationRecord
     def hole_record_count
         holes.count
     end
+
+    
 end

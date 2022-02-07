@@ -1,7 +1,7 @@
 class HolesController < ApplicationController
 
     def index
-        @holes = Hole.all.hazard
+        @holes = Hole.all.has_hazard
     end
 
     def show 

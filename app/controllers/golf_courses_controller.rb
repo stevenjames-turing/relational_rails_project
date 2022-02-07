@@ -1,7 +1,7 @@
 class GolfCoursesController < ApplicationController
 
     def index
-        @golf_courses = GolfCourse.order(created_at: :desc)
+        @golf_courses = GolfCourse.sort_created_at_desc
     end
 
     def show

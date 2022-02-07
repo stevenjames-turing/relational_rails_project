@@ -52,6 +52,10 @@ RSpec.describe 'golf course holes index page' do
         visit "/golf_courses/#{augusta.id}/holes"
 
         expect(page).to have_link("Sort Alphabetically")
+        expect(tea_olive.name).to appear_before(pink_dogwood.name)
+        expect(pink_dogwood.name).to appear_before(flowering_peach.name)
+        expect(flowering_peach.name).to appear_before(crab_apple.name)
+
         click_link("Sort Alphabetically")
         expect(current_path).to eq("/golf_courses/#{augusta.id}/holes")
 

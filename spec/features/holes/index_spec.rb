@@ -29,4 +29,17 @@ RSpec.describe 'hole index page' do
         click_link("Hole Index")
         expect(current_path).to eq("/holes")
     end
+
+    it 'only displays holes with hazard = true' do 
+        pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
+        hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
+        hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
+        hole_3 = pinehurst.holes.create!(hazard: false, name: "The 3rd Hole", par: 4)
+        
+        visit "/holes"
+
+        expect(page).to have_content("The 1st Hole")
+        expect(page).to have_content("The 2nd Hole")
+        expect(page).to_not have_content("The 3rd Hole")
+    end
 end

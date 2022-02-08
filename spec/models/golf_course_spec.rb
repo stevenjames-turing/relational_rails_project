@@ -6,8 +6,8 @@ describe GolfCourse, type: :model do
   end
 
   describe 'validations' do
-    # it { should validate_presence_of :hole_count }
-    # it { should validate_presence_of :public }
-    # it { should validate_presence_of :name }
+    it { should validate_presence_of :hole_count }
+    it { should validate_presence_of :name }
+    it { should validate_inclusion_of(:public).in?([true, false]) }
   end
 end

@@ -74,4 +74,23 @@ RSpec.describe 'golf course index page' do
         first(:link, "Edit").click
         expect(current_path).to eq("/golf_courses/#{pinehurst.id}/edit")
     end
+    
+    it 'has delete buttons next to each Golf Course' do 
+        augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
+        tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
+        pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
+        hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
+        saintandrews = GolfCourse.create!(name: "St. Andrews", hole_count: 72, public: true)
+        burn = saintandrews.holes.create!(hazard: true, name: "Burn", par: 4)
+
+        visit "/golf_courses"
+    
+        expect(page).to have_link("Delete")
+        first(:link, "Delete").click
+        expect(current_path).to eq("/golf_courses")
+
+        expect(page).to have_content(augusta.name)
+        expect(page).to have_content(pinehurst.name)
+        expect(page).to_not have_content(saintandrews.name)
+    end
 end

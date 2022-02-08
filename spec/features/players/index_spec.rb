@@ -6,8 +6,8 @@ RSpec.describe 'players index page' do
     team_2 = Team.create!(roster: 23, coach: false, league: "Blues")
     team_3 = Team.create!(roster: 36, coach: true, league: "Reds")
     p1 = team_1.players.create!(name: "MacKinnon", number: 29, injured: true)
-    p2 = team_1.players.create!(name: "Makar", number: 8, injured: false)
-    p3 = team_2.players.create!(name: "Perron", number: 57, injured: false)
+    p2 = team_1.players.create!(name: "Makar", number: 8, injured: true)
+    p3 = team_2.players.create!(name: "Perron", number: 57, injured: true)
 
     visit "/players"
 
@@ -34,5 +34,31 @@ RSpec.describe 'players index page' do
     expect(page).to have_link("Player Index")
     click_link("Player Index")
     expect(current_path).to eq("/players")
+  end
+
+  it 'only shows injured players' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+    p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
+
+    visit "/players"
+
+    expect(page).to have_content(p1.name)
+    expect(page).to_not have_content(p2.name)
+  end
+
+  it 'allows user to update players' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    team_2 = Team.create!(roster: 23, coach: false, league: "Blues")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+    p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
+
+    visit "/players"
+
+    expect(page).to have_link("Edit")
+    click_link("Edit")
+    expect(current_path).to eq("/players/#{p1.id}/edit")
   end
 end

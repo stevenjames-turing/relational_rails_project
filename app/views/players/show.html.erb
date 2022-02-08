@@ -1,3 +1,4 @@
 <h2>Player: <%= @player.name %></h2>
 <p>Number: <%= @player.number %></p>
 <p>Injured?: <%= @player.injured %></p>
+<a href="/players/<%= "#{@player.id}" %>/edit">Update Player</a>

@@ -1,0 +1,9 @@
+<%= form_with url: "/players/#{@player.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :injured? %>
+  <%= form.select :injured, ['pick one below', 'true', 'false'] %></p>
+  <p><%= form.label :number%>
+  <%= form.number_field :number %></p>
+  <%= form.submit "Submit"%>
+<% end %>

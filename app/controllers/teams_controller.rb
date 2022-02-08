@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.order(created_at: :desc)
+    @teams = Team.sort_by_created_at
   end
 
   def show

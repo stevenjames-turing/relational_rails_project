@@ -4,4 +4,8 @@ class Player < ApplicationRecord
   def self.injured
     Player.all.where(injured: true)
   end
+
+  # def self.alphabetize
+  #   Player.order(:name)
+  # end
 end

@@ -1,4 +1,7 @@
-<h1><%= @hole.name %></h1>
-<a href="/holes/<%= "#{@hole.id}" %>/edit">Update Hole</a>
+<h2><%= @hole.name %></h2>
 <p>Par: <%= @hole.par %></p>
 <p>Has hazards? <%= @hole.hazard %></p>
+<p>
+<%= link_to "Update Hole", "/holes/#{@hole.id}/edit" %> <br>
+<%= link_to "Delete Hole", "/holes/#{@hole.id}", method: :delete %>
+</p>

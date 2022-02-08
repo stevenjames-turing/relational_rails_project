@@ -33,6 +33,13 @@ hole_8 = pinehurst.holes.create!(hazard: false, name: "The 8th Hole", par: 5)
 hole_9 = pinehurst.holes.create!(hazard: true, name: "The 9th Hole", par: 3)
 hole_10 = pinehurst.holes.create!(hazard: true, name: "The 10th Hole", par: 5)
 
+saintandrews = GolfCourse.create!(name: "St. Andrews", hole_count: 72, public: true)
+burn = saintandrews.holes.create!(hazard: true, name: "Burn", par: 4)
+dyke = saintandrews.holes.create!(hazard: true, name: "Dyke", par: 3)
+cartgate = saintandrews.holes.create!(hazard: true, name: "Cartgate", par: 6)
+ginger = saintandrews.holes.create!(hazard: false, name: "Ginger", par: 4)
+heathery = saintandrews.holes.create!(hazard: true, name: "Heathery", par: 5)
+
 team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
 p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
 p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 

@@ -3,7 +3,11 @@
 <br>
 <%= link_to "Sort Alphabetically", :sort => :name %>
 <% @golf_course_holes.each do |hole| %>
-    <h4>Hole Name: <%= hole.name %></h4>
-    <p>Par: <%= hole.par %></p>
-    <p>Hazards? <%= hole.hazard %></p>
+    <p>
+    Hole Name: <%= hole.name %> <br>
+    Par: <%= hole.par %> <br>
+    Hazards? <%= hole.hazard %> <br>
+    <%= link_to "Edit", "/holes/#{hole.id}/edit" %>
+    <%= link_to "Delete", "/holes/#{hole.id}", method: :delete %>
+    </p>
 <% end %>

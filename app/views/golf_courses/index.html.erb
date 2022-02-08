@@ -4,6 +4,7 @@
     Course Name: <%= course.name %>
     (<%= course.created_at %>) 
     <%= link_to 'Edit', "/golf_courses/#{course.id}/edit" %>
+    <%= link_to "Delete", "/golf_courses/#{course.id}", method: :delete %>
     </p>
 <% end %>
 <a href="/golf_courses/new">New Golf Course</a>

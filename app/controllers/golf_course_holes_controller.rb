@@ -1,14 +1,8 @@
 class GolfCourseHolesController < ApplicationController
     def index
         @course = GolfCourse.find(params[:id])
-        # @golf_course_holes = GolfCourse.find(params[:id]).holes
-        
         hole_records = GolfCourse.find(params[:id]).holes
-        if params[:sort] == nil
-            @golf_course_holes = hole_records
-        else
-            @golf_course_holes = hole_records.order_by(params[:sort])
-        end 
+        @golf_course_holes = GolfCourseService.golf_course_holes(hole_records, params[:sort])
     end
     
     def new

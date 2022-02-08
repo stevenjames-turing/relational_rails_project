@@ -21,4 +21,9 @@ class HolesController < ApplicationController
         redirect_to "/holes/#{hole.id}"
     end
 
+    def destroy
+        Hole.destroy(params[:id])
+        redirect_to "/holes"
+    end
+
 end

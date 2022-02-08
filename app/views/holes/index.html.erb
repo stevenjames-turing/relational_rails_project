@@ -1,8 +1,11 @@
 <h1>Holes</h1>
 <% @holes.each do |hole| %>
-<h3><%= hole.name %></h3>
-<p>Par: <%= hole.par %></p>
-<p>Hazards? <%= hole.hazard %></p>
+<p><%= hole.name %>
+<%= link_to "Edit", "/holes/#{hole.id}/edit" %>
+<%= link_to "Delete", "/holes/#{hole.id}", method: :delete %><br>
+Par: <%= hole.par %><br>
+Hazards? <%= hole.hazard %>
+</p>
 <% end %>
 
 

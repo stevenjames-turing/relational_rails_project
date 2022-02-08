@@ -6,8 +6,4 @@ class Hole < ApplicationRecord
     def self.has_hazard
         Hole.all.where(hazard: true)
     end
-
-    def self.order_by(sort_type)
-        order(sort_type)
-    end
 end

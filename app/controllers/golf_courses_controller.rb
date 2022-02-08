@@ -18,7 +18,7 @@ class GolfCoursesController < ApplicationController
             hole_count: params[:hole_count]})
         redirect_to "/golf_courses"
     end
-        
+    
     def edit
         @golf_course = GolfCourse.find(params[:id])
     end
@@ -29,7 +29,13 @@ class GolfCoursesController < ApplicationController
             name: params[:name],
             public: params[:public],
             hole_count: params[:hole_count]})
-        redirect_to "/golf_courses/#{golf_course.id}"
+            redirect_to "/golf_courses/#{golf_course.id}"
+        end
+        
+    def destroy
+        GolfCourse.destroy(params[:id])
+        
+        redirect_to "/golf_courses"
     end
 
 end

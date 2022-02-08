@@ -1,5 +1,5 @@
 class GolfCourse < ApplicationRecord
-    has_many :holes
+    has_many :holes, dependent: :delete_all  
     validates_presence_of :hole_count, :name
     validates_inclusion_of :public, in: [true, false]
 

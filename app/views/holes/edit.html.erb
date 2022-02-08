@@ -1,0 +1,9 @@
+<%= form_with url: "/holes/#{@hole.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :hazard? %>
+  <%= form.select :hazard, ['pick one below', 'true', 'false'] %></p>
+  <p><%= form.label :par%>
+  <%= form.number_field :par %></p>
+  <%= form.submit "Submit"%>
+<% end %>

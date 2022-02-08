@@ -2,5 +2,5 @@
 <a href="/golf_courses/<%= @golf_course.id %>/holes">Holes</a>
 <p>Number of Holes: <%= @golf_course.hole_count %></p>
 <p>Public Course? <%= @golf_course.public %></p>
-<p>Holes Completed: <%= Hole.where(golf_course_id: (@golf_course.id)).count %> </p>
+<p>Holes Added: <%= @golf_course.hole_record_count %> </p>
 <a href="/golf_courses/<%= @golf_course.id %>/edit">Update Golf Course</a>

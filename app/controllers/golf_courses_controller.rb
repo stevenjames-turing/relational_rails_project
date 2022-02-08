@@ -1,7 +1,7 @@
 class GolfCoursesController < ApplicationController
 
     def index
-        @golf_courses = GolfCourse.order(created_at: :desc)
+        @golf_courses = GolfCourse.sort_created_at_desc
     end
 
     def show
@@ -16,7 +16,7 @@ class GolfCoursesController < ApplicationController
             name: params[:name],
             public: params[:public],
             hole_count: params[:hole_count]})
-            redirect_to "/golf_courses"
+        redirect_to "/golf_courses"
     end
         
     def edit

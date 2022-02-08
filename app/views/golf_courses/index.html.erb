@@ -1,5 +1,9 @@
 <h1>Golf Courses</h1>
 <% @golf_courses.each do |course| %>
-    <h5>Course Name: <%= course.name %> (<%= course.created_at %>)</h5>
+<p>
+    Course Name: <%= course.name %>
+    (<%= course.created_at %>) 
+    <%= link_to 'Edit', "/golf_courses/#{course.id}/edit" %>
+    </p>
 <% end %>
 <a href="/golf_courses/new">New Golf Course</a>

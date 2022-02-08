@@ -60,4 +60,16 @@ RSpec.describe "teams index page" do
     click_button("Submit")
     expect(current_path).to eq("/teams")
   end
+
+  it 'can edit a current team' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+
+    visit "/teams"
+
+    expect(page).to have_link("Edit")
+    click_link("Edit")
+    expect(current_path).to eq("/teams/#{team_1.id}/edit")
+  end
 end

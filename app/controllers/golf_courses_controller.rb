@@ -34,7 +34,6 @@ class GolfCoursesController < ApplicationController
         
     def destroy
         GolfCourse.destroy(params[:id])
-        
         redirect_to "/golf_courses"
     end
 

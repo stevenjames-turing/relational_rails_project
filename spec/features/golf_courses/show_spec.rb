@@ -75,8 +75,5 @@ RSpec.describe 'golf course show page' do
 
         expect(page).to have_content("Pinehurst No. 2")
         expect(page).to_not have_content("Augusta")
-        # Then a 'DELETE' request is sent to '/parents/:id',
-        # the parent is deleted, and all child records are deleted
-        # and I am redirected to the parent index page where I no longer see this parent
     end
 end

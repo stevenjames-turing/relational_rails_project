@@ -7,5 +7,7 @@
     Hole Name: <%= hole.name %> <br>
     Par: <%= hole.par %> <br>
     Hazards? <%= hole.hazard %> <br>
-    <%= link_to "Edit", "/holes/#{hole.id}/edit" %></p>
+    <%= link_to "Edit", "/holes/#{hole.id}/edit" %>
+    <%= link_to "Delete", "/holes/#{hole.id}", method: :delete %>
+    </p>
 <% end %>

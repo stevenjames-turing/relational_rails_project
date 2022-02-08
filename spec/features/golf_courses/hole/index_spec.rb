@@ -78,6 +78,25 @@ RSpec.describe 'golf course holes index page' do
         first(:link, "Edit").click
         expect(current_path).to eq("/holes/#{tea_olive.id}/edit")
     end
+
+    it 'has links to delete each hole' do 
+        augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
+        tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
+        pink_dogwood = augusta.holes.create!(hazard: true, name: "Pink Dogwood", par: 5)
+        crab_apple = augusta.holes.create!(hazard: true, name: "Flowering Crab Apple", par: 3)
+        magnolia = augusta.holes.create!(hazard: true, name: "Magnolia", par: 4)
+        
+        visit "/golf_courses/#{augusta.id}/holes"
+
+        expect(page).to have_link("Delete")
+        first(:link, "Delete").click
+        expect(current_path).to eq("/holes")
+
+        expect(page).to_not have_content(tea_olive.name)
+        expect(page).to have_content(pink_dogwood.name)
+        expect(page).to have_content(crab_apple.name)
+        expect(page).to have_content(magnolia.name)
+    end
     
     
 

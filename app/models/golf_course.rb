@@ -9,5 +9,9 @@ class GolfCourse < ApplicationRecord
 
     def hole_record_count
         holes.count
-    end    
+    end
+
+    def self.order_by(data, order_type)
+        data.order(order_type)
+    end
 end

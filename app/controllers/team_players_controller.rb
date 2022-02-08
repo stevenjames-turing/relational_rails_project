@@ -1,8 +1,8 @@
 class TeamPlayersController < ApplicationController
   def index
     @team = Team.find(params[:id])
-    @team_players = Team.find(params[:id]).players
-  
+    player_records = Team.find(params[:id]).players
+    @team_players = TeamService.team_players(player_records, params[:sort])
   end
 
   def new

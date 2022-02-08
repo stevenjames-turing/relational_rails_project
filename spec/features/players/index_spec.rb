@@ -50,6 +50,7 @@ RSpec.describe 'players index page' do
 
   it 'allows user to update players' do
     team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    team_2 = Team.create!(roster: 23, coach: false, league: "Blues")
     p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
     p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
     p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 

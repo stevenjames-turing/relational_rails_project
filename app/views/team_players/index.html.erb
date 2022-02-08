@@ -1,7 +1,8 @@
 <h1><%= @team.league %></h1>
 <a href="/teams/<%= "#{@team.id}" %>/players/new">New Player</a>
 <% @team_players.each do |player| %>
-  <h4>Player: <%= player.name %></h4>
+  <h3>Player: <%= player.name %></h3>
   <p>Number: <%= player.number %></p>
   <p>Injured?: <%= player.injured %></p>
+  <p><%= link_to "Edit", "/players/#{player.id}/edit" %></p>
 <% end %>

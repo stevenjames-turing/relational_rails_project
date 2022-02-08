@@ -47,4 +47,17 @@ RSpec.describe 'players index page' do
     expect(page).to have_content(p1.name)
     expect(page).to_not have_content(p2.name)
   end
+
+  it 'allows user to update players' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: false) 
+    p4 = team_1.players.create(name: "Rantanen", number: 96, injured: false) 
+
+    visit "/players"
+
+    expect(page).to have_link("Edit")
+    click_link("Edit")
+    expect(current_path).to eq("/players/#{p1.id}/edit")
+  end
 end

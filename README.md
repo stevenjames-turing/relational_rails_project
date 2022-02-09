@@ -1,6 +1,6 @@
 # Relational Rails
 
-![DB Design](https://user-images.githubusercontent.com/91357724/153289021-57efcfcc-acbf-4544-83c0-e19b25d53d6b.png)
+![DB Design](https://user-images.githubusercontent.com/91357724/153296163-7cbad127-f4d2-420c-bd0d-34584f942fbf.png)
 
 ## About
 

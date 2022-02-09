@@ -1,7 +1,7 @@
-<h1>Team: <%= @team.league %></h1>
+<h2>Team: <%= @team.league %></h2>
 <a href="/teams/<%= @team.id %>/players">Players</a>
-<h3>Roster: <%= @team.roster %></h3>
-<h3>Coach?: <%= @team.coach %></h3>
-<h3>Number of Players: <%= @team.number_of_players %></h3>
+<p>Roster: <%= @team.roster %></p>
+<p>Coach?: <%= @team.coach %></p>
+<p>Number of Players: <%= @team.number_of_players %></p>
 <a href="/teams/<%= @team.id %>/edit">Update Team</a>
 <%= link_to "Delete Team", "/teams/#{@team.id}", method: :delete %>

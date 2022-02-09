@@ -2,6 +2,6 @@
   <h3><%= player.name %></h3>
   <p>Number: <%= player.number %></p>
   <p>Injured?: <%= player.injured %></p>
-  <p><%= link_to "Edit", "/players/#{player.id}/edit" %></p>
+  <%= link_to "Edit", "/players/#{player.id}/edit" %>
   <%= link_to "Delete", "/players/#{player.id}", method: :delete %>
 <% end %>

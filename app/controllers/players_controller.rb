@@ -13,7 +13,9 @@ class PlayersController < ApplicationController
 
   def update
     player = Player.find(params[:id])
-    player.update(number: params[:number], name: params[:name], injured: params[:injured])
+    player.update(number: params[:number], 
+                  name: params[:name], 
+                  injured: params[:injured])
     redirect_to "/players/#{player.id}"
   end
 

@@ -120,7 +120,4 @@ RSpec.describe 'golf course holes index page' do
         expect(page).to_not have_content(tea_olive.name)
         expect(page).to_not have_content(juniper.name)
     end
-    
-    
-
 end

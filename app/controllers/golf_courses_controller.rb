@@ -1,7 +1,9 @@
 class GolfCoursesController < ApplicationController
 
     def index
-        @golf_courses = GolfCourse.sort_created_at_desc
+        course_data = GolfCourse.sort_created_at_desc
+        @golf_courses = GolfCourseService.data_sorter(course_data, params)
+
     end
 
     def show

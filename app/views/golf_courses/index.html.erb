@@ -1,4 +1,10 @@
 <h1>Golf Courses</h1>
+<%= form_with url: "/golf_courses", method: :get, local: true do |form| %>
+  <p><%= form.label "Search By Name:"%>
+  <%= form.text_field :hole_name %>
+  <%= form.submit "Search"%>
+  </p>
+<% end %>
 <% @golf_courses.each do |course| %>
 <p>
     Course Name: <%= course.name %>

@@ -18,12 +18,12 @@ RSpec.describe 'golf course index page' do
         pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
         
         visit "/golf_courses"
-
+        
         expect(pinehurst.name).to appear_before(course_2.name) 
         expect(course_2.name).to appear_before(augusta.name) 
         expect(augusta.name).to_not appear_before(pinehurst.name)
     end
-
+    
     it 'has a link on every page' do 
         augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
         tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
@@ -69,7 +69,7 @@ RSpec.describe 'golf course index page' do
         hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
         
         visit "/golf_courses"
-
+        
         expect(page).to have_link("Edit")
         first(:link, "Edit").click
         expect(current_path).to eq("/golf_courses/#{pinehurst.id}/edit")
@@ -82,15 +82,37 @@ RSpec.describe 'golf course index page' do
         hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
         saintandrews = GolfCourse.create!(name: "St. Andrews", hole_count: 72, public: true)
         burn = saintandrews.holes.create!(hazard: true, name: "Burn", par: 4)
-
+        
         visit "/golf_courses"
-    
+        
         expect(page).to have_link("Delete")
         first(:link, "Delete").click
         expect(current_path).to eq("/golf_courses")
-
+        
         expect(page).to have_content(augusta.name)
         expect(page).to have_content(pinehurst.name)
         expect(page).to_not have_content(saintandrews.name)
     end
+    
+    it 'can search by name(exact match)' do 
+        pinehurst = GolfCourse.create!(name: "Pinehurst No. 2", hole_count: 18, public: true)
+        hole_1 = pinehurst.holes.create!(hazard: true, name: "The 1st Hole", par: 4)
+        hole_2 = pinehurst.holes.create!(hazard: true, name: "The 2nd Hole", par: 4)
+        saintandrews = GolfCourse.create!(name: "St. Andrews", hole_count: 72, public: true)
+        augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
+        burn = saintandrews.holes.create!(hazard: true, name: "Burn", par: 4)
+        heathery = saintandrews.holes.create!(hazard: true, name: "Heathery", par: 5)
+        
+        visit "/golf_courses"
+        
+        expect(page).to have_content("Search by name:")
+        fill_in :hole_name, with: "St. Andrews"
+        click_button("Search")
+        expect(current_path).to eq("/golf_courses")
+        
+        expect(page).to have_content(saintandrews.name)
+        expect(page).to_not have_content(pinehurst.name)
+        expect(page).to_not have_content(augusta.name)
+    end
+
 end

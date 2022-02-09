@@ -8,3 +8,9 @@
   <p>Injured?: <%= player.injured %></p>
   <p><%= link_to "Edit", "/players/#{player.id}/edit" %></p>
 <% end %>
+<%= form_with url: "/teams/#{@team.id}/players", method: :get, local: true do |form| %>
+  <p><%= form.label "Only return records with jersey number greater than:"%>
+  <%= form.number_field :number %>
+  <%= form.submit "Submit"%>
+  </p>
+<% end %>

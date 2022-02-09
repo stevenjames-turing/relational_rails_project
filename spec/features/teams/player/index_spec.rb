@@ -58,4 +58,21 @@ RSpec.describe 'teams player index page' do
     expect(p2.name).to appear_before(p3.name)
     expect(p3.name).to_not appear_before(p2.name)
   end
+
+  it 'limits results to players matching user-input criteria of jersey numbers' do
+    team_1 = Team.create(roster: 25, coach: true, league: "Avalanche")
+    p1 = team_1.players.create(name: "MacKinnon", number: 29, injured: true)
+    p3 = team_1.players.create!(name: "Perron", number: 57, injured: true)
+    p2 = team_1.players.create(name: "Makar", number: 8, injured: true)
+
+    visit "/teams/#{team_1.id}/players"
+
+    fill_in :number, with: 29
+    click_button("Submit")
+    expect(current_path).to eq("/teams/#{team_1.id}/players")
+
+    expect(page).to have_content(p3.name)
+    expect(page).to_not have_content(p1.name)
+    expect(page).to_not have_content(p2.name)
+  end
 end

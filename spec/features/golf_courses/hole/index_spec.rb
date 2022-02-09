@@ -87,15 +87,38 @@ RSpec.describe 'golf course holes index page' do
         magnolia = augusta.holes.create!(hazard: true, name: "Magnolia", par: 4)
         
         visit "/golf_courses/#{augusta.id}/holes"
-
+        
         expect(page).to have_link("Delete")
         first(:link, "Delete").click
         expect(current_path).to eq("/holes")
-
+        
         expect(page).to_not have_content(tea_olive.name)
         expect(page).to have_content(pink_dogwood.name)
         expect(page).to have_content(crab_apple.name)
         expect(page).to have_content(magnolia.name)
+    end
+    
+    it 'limits results to holes matching user-input criteria of par count' do
+        augusta = GolfCourse.create!(name: "Augusta", hole_count: 18, public: false)
+        tea_olive = augusta.holes.create!(hazard: true, name: "Tea Olive", par: 4)
+        pink_dogwood = augusta.holes.create!(hazard: true, name: "Pink Dogwood", par: 5)
+        crab_apple = augusta.holes.create!(hazard: true, name: "Flowering Crab Apple", par: 3)
+        magnolia = augusta.holes.create!(hazard: true, name: "Magnolia", par: 4)
+        juniper = augusta.holes.create!(hazard: false, name: "Juniper", par: 3)
+        pampas = augusta.holes.create!(hazard: true, name: "Pampas", par: 4)
+        yellow_jasmine = augusta.holes.create!(hazard: true, name: "Yellow Jasmine", par: 5)
+        carolina_cherry = augusta.holes.create!(hazard: true, name: "Carolina Cherry", par: 4)
+
+        visit "/golf_courses/#{augusta.id}/holes"
+
+        fill_in :par, with: 4
+        click_button("Submit")
+        expect(current_path).to eq("/golf_courses/#{augusta.id}/holes")
+
+        expect(page).to have_content(pink_dogwood.name)
+        expect(page).to have_content(yellow_jasmine.name)
+        expect(page).to_not have_content(tea_olive.name)
+        expect(page).to_not have_content(juniper.name)
     end
     
     

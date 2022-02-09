@@ -11,3 +11,9 @@
     <%= link_to "Delete", "/holes/#{hole.id}", method: :delete %>
     </p>
 <% end %>
+<%= form_with url: "/golf_courses/#{@course.id}/holes", method: :get, local: true do |form| %>
+  <p><%= form.label "Only return records with par count greater than:"%>
+  <%= form.number_field :par %>
+  <%= form.submit "Submit"%>
+  </p>
+<% end %>

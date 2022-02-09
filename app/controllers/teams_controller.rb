@@ -31,4 +31,9 @@ class TeamsController < ApplicationController
         roster: params[:roster]})
       redirect_to "/teams/#{team.id}"
   end
+
+  def destroy
+    Team.destroy(params[:id])
+    redirect_to "/teams"
+  end
 end

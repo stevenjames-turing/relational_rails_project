@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :players
+  has_many :players, dependent: :delete_all
   validates_presence_of :roster, :league
   validates_inclusion_of :coach, in: [true, false]
 

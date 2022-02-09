@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   delete '/golf_courses/:id', to: 'golf_courses#destroy'
   delete '/holes/:id', to: 'holes#destroy'
   delete '/teams/:id', to: 'teams#destroy'
+  delete '/players/:id', to: 'players#destroy'
 
 end

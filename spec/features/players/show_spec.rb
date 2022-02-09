@@ -28,8 +28,8 @@ RSpec.describe 'players show page' do
 
     visit "/players/#{p1.id}"
 
-    expect(page).to have_link("Update Player")
-    click_link("Update Player")
+    expect(page).to have_link("Update")
+    click_link("Update")
     expect(current_path).to eq("/players/#{p1.id}/edit")
 
     fill_in :name, with: "MacK"
@@ -48,8 +48,8 @@ RSpec.describe 'players show page' do
 
     visit "/players/#{p1.id}"
 
-    expect(page).to have_link("Delete Player")
-    click_link("Delete Player")
+    expect(page).to have_link("Delete")
+    click_link("Delete")
     expect(current_path).to eq("/players")
 
     expect(page).to have_content(p2.name)

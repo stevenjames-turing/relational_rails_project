@@ -11,7 +11,7 @@ class Team < ApplicationRecord
     players.count
   end
 
-  def self.order_by(players, function)
-    players.order(function)
+  def self.order_by(players, params)
+    players.order(params)
   end
 end

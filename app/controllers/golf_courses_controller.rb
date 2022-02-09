@@ -3,7 +3,6 @@ class GolfCoursesController < ApplicationController
     def index
         course_data = GolfCourse.sort_created_at_desc
         @golf_courses = GolfCourseService.data_sorter(course_data, params)
-
     end
 
     def show

@@ -2,3 +2,4 @@
 <p>Number: <%= @player.number %></p>
 <p>Injured?: <%= @player.injured %></p>
 <a href="/players/<%= "#{@player.id}" %>/edit">Update Player</a>
+<%= link_to "Delete Player", "/players/#{@player.id}", method: :delete %>

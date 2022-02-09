@@ -4,3 +4,4 @@
 <h3>Coach?: <%= @team.coach %></h3>
 <h3>Number of Players: <%= @team.number_of_players %></h3>
 <a href="/teams/<%= @team.id %>/edit">Update Team</a>
+<%= link_to "Delete Team", "/teams/#{@team.id}", method: :delete %>

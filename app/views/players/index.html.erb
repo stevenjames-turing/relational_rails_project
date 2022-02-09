@@ -3,4 +3,5 @@
   <p>Number: <%= player.number %></p>
   <p>Injured?: <%= player.injured %></p>
   <p><%= link_to "Edit", "/players/#{player.id}/edit" %></p>
+  <%= link_to "Delete", "/players/#{player.id}", method: :delete %>
 <% end %>

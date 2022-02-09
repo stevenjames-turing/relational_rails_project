@@ -4,5 +4,6 @@
   <p><%= team.league %> 
   <%= team.created_at %>
   <%= link_to "Edit", "/teams/#{team.id}/edit" %>
+  <%= link_to "Delete", "/teams/#{team.id}", method: :delete %>
   </p>
 <% end %>

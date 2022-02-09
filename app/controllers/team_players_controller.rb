@@ -11,7 +11,9 @@ class TeamPlayersController < ApplicationController
 
   def create
     team = Team.find(params[:id])
-    player = team.players.create!(name: params[:name], number: params[:number], injured: params[:injured])
+    player = team.players.create!(name: params[:name], 
+                                  number: params[:number], 
+                                  injured: params[:injured])
     redirect_to "/teams/#{team.id}/players"
   end
 end

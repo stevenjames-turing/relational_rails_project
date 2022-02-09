@@ -9,6 +9,7 @@
 ## Getting Started
   - Fork/Clone this repo to your computer from GitHub
   - [Relational Rails Project](https://github.com/stevenjames-turing/relational_rails_project)
+  - [Turing Project Page](https://backend.turing.edu/module2/projects/relational_rails)
 
   ## Testing:
 	- If you'd like to run through our test suite just use the rspec spec/<file_name> on any of the spec files.
